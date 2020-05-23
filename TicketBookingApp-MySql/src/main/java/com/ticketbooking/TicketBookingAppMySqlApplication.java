@@ -1,14 +1,11 @@
 package com.ticketbooking;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.PropertySource;
 
-import com.ticketbooking.entities.Ticket;
 import com.ticketbooking.service.TicketService;
 
 @SpringBootApplication
@@ -22,12 +19,17 @@ public class TicketBookingAppMySqlApplication implements CommandLineRunner {
 		SpringApplication.run(TicketBookingAppMySqlApplication.class, args);
 	}
 	
+	
+	/**
+	 * Uncomment both statements
+	 * Addition of a record to check for GET APIs or else first use POST API and then use GET as intially no 
+	 * Records will be there in DB.
+	 * */
+	
 	@Override
 	public void run(String... args) throws Exception {
 //		Ticket ticket = new Ticket("Raja", "Hyderabad", "Delhi", new Date(), "raja@gmail.com");
 //		ticketService.createTicket(ticket);
-		System.out.println("*************Application Started******************");
-		
 	}
 
 }
