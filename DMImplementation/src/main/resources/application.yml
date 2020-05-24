@@ -1,0 +1,15 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL57Dialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+      
+  datasource:
+    url: jdbc:mysql://localhost:3306/persons_dbase
+    username: root 
+    password: Password@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
