@@ -25,8 +25,8 @@ import lombok.ToString;
 @Setter
 @Getter
 @NoArgsConstructor
-@ToString
-@NamedQuery(name = "Book.findAllBookByBookId", query = "SELECT DISTINCT b FROM book b JOIN b.publishers p WHERE b.bookId=?1")
+@ToString												
+@NamedQuery(name = "Book.findAllBookByBookId", query = "SELECT DISTINCT b FROM Book b JOIN b.publishers p WHERE b.bookId=?1")
 public class Book {
 
 	@Id
@@ -38,8 +38,8 @@ public class Book {
 	private String bookName;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "book_publisher", joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "bookId"), 
-	                             inverseJoinColumns = @JoinColumn(name = "publisher_id", referencedColumnName = "publisherId"))
+	@JoinTable(name = "book_publisher", joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "book_id"), 
+	                             inverseJoinColumns = @JoinColumn(name = "publisher_id", referencedColumnName = "publisher_id"))
 	private Set<Publisher> publishers;
 
 	public Book(String bookName, Set<Publisher> publishers) {
