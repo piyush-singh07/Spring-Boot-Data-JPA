@@ -1,5 +1,7 @@
 package com.app.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +18,7 @@ public class BookService {
 		return bookDao.saveAll(books);
 	}
 	
-	public Iterable<Book> getBooksByBookId(Integer bookId)
+	public List<Book> getBooksByBookId(Integer bookId)
 	{
 		return bookDao.findAllBookByBookId(bookId);
 	}

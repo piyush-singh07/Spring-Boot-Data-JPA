@@ -2,6 +2,7 @@ package com.app;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -9,7 +10,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.app.dao.BookDao;
 import com.app.entities.Book;
 import com.app.entities.Publisher;
 import com.app.service.BookService;
@@ -20,9 +20,6 @@ public class ManyToManyAssociationExampleApplication {
 	@Autowired
 	private BookService bookService;
 	
-	@Autowired
-	private BookDao bookDao;
-
 	public static void main(String[] args) {
 		SpringApplication.run(ManyToManyAssociationExampleApplication.class, args);
 	}
@@ -30,8 +27,15 @@ public class ManyToManyAssociationExampleApplication {
 	@Bean
 	CommandLineRunner getRunner() {
 		return args -> {
-			saveBooksData();
+			//saveBooksData();
+			getBookDetailsByBookId();
 		};
+	}
+
+	private void getBookDetailsByBookId() {
+		List<Book> bookDetails= bookService.getBooksByBookId(1);
+		bookDetails.forEach(System.out::println);
+		
 	}
 
 	private void saveBooksData() {
@@ -49,7 +53,7 @@ public class ManyToManyAssociationExampleApplication {
 		Book bookD = new Book("BookD", new HashSet<>(Arrays.asList(pubD, pubE, pubF)));
 		Book bookE = new Book("BookE", new HashSet<>(Arrays.asList(pubE)));
 
-		bookDao.saveAll(Arrays.asList(bookA, bookB, bookC, bookD, bookE));
+		bookService.saveBooks(Arrays.asList(bookA, bookB, bookC, bookD, bookE));
 
 	}
 
