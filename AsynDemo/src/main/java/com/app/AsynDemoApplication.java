@@ -38,35 +38,34 @@ public class AsynDemoApplication {
 	}
 	
 	
-	@Bean 
-	CommandLineRunner getRunner()
-	{
-		return args->{
+	@Bean
+	CommandLineRunner getRunner() {
+		return args -> {
 			testAsyncMethod();
 		};
 	}
 
 	private void testAsyncMethod() throws InterruptedException, ExecutionException {
 
-		CompletableFuture<Person> object1= personService.findByemail("lakshman@gmail.com");
+		CompletableFuture<Person> object1 = personService.findByemail("lakshman@gmail.com");
 		System.out.println("object1 is called....");
-		
-		CompletableFuture<Person> object2= personService.findByemail("ganesh@gmail.com");
+
+		CompletableFuture<Person> object2 = personService.findByemail("ganesh@gmail.com");
 		System.out.println("object2 is called....");
-		
-		CompletableFuture<Person> object3= personService.findByemail("ram@gmail.com");
+
+		CompletableFuture<Person> object3 = personService.findByemail("ram@gmail.com");
 		System.out.println("object3 is called....");
-		
-		CompletableFuture<Person> object4= personService.findByemail("seth@gmail.com");
+
+		CompletableFuture<Person> object4 = personService.findByemail("seth@gmail.com");
 		System.out.println("object4 is called....");
-		
-		CompletableFuture.allOf(object1,object2,object3,object4).join();
-		
+
+		CompletableFuture.allOf(object1, object2, object3, object4).join();
+
 		System.out.println("--> " + object1.get());
 		System.out.println("--> " + object2.get());
 		System.out.println("--> " + object3.get());
 		System.out.println("--> " + object4.get());
-		
+
 	}
 	
 }
