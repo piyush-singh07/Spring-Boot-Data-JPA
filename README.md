@@ -8,4 +8,4 @@ Contents:
 5. ManyToMany Association
 6. Query and Native Query
 7. PagingAndSorting
-8. Async Approach 
+8. Async Approach (@Aync and @EnableAsync)
