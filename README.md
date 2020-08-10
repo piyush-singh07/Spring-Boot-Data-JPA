@@ -7,5 +7,5 @@ Contents:
 4. Named Queries
 5. ManyToMany Association
 6. Query and Native Query
-7. PagingAndSorting
+7. PagingAndSorting Repository
 8. Async Approach (@Aync and @EnableAsync annotations with CompletableFuture)
